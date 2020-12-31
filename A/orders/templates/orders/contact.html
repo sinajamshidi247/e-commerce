@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+
+<p>Contactimage</p>
+<form action = '' method = 'post'>
+{% csrf_token %}
+{{form}}</br>
+<input value = 'Send' type = 'submit' class = 'btn btn-primary'>
+</form>
+{% endblock %}

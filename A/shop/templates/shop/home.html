@@ -1,14 +1,25 @@
 
-{% extends "base.html" %}
 
+{% extends "base.html" %}
+{% load static %}
 
 
 {% block content %}
 
+<link rel="stylesheet" href="{% static 'css/home.css' %}" />
+
+
+{% comment %} <img id ='static' src="{% static "images/header1.jpg" %}" alt="My image"/> {% endcomment %}
+
 
 <p>
 
-welcome to our shop 
+welcome to our shop </br>
+
+this is a test project
+
+</br></br></br></br></br></br></br></br>
+
 
 </p>
 
@@ -38,8 +49,8 @@ welcome to our shop
 
 <div class="card" style="width: 18rem; display:inline-block">
   {% load thumbnail %}
-  {% thumbnail product.image "200x200" as img %}
-  <img src="{{img.url}}"  alt=""   width='400px' height = '300px'>
+  {% thumbnail product.image "200x400" as img %}
+  <img id = "pi" src="{{img.url}}"  alt="" height = "300px" >  
   {% endthumbnail %}
   <div class="card-body">
    <a  href= "{{product.get_absolute_url}}" class="card-title">{{product.name}} </a>

@@ -1,8 +1,8 @@
 from django.shortcuts import render , redirect
-from .forms import UserLoginForm , UserRegisterForm
+from .forms import UserLoginForm , UserRegisterForm 
 from django.contrib.auth import login , logout , authenticate
 from django.contrib import messages
-from .models import User
+from .models import User 
 
 
 
@@ -51,3 +51,4 @@ def user_register(request):
 
 
     return render(request,'accounts/register.html',{'form':form})
+

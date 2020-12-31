@@ -45,3 +45,14 @@ class Coupon(models.Model):
 
 	def __str__(self):
 		return self.code
+
+
+
+class Contact(models.Model):
+	email = models.EmailField(max_length=100, unique=True)
+	full_name = models.CharField(max_length=100,null=True)
+	body=models.TextField()
+
+
+	def __str(self):
+		return self.email 

@@ -1,0 +1,19 @@
+p {
+    background: url('/static/images/header1.jpg');
+    background-color: #cccccc;
+    color: aliceblue;
+    margin: -53px 8px 21px 2px;
+    background-size: cover;
+    background-size: 50% ;
+    text-align: center;
+    font-size: large;
+
+}
+div .card{
+    text-align: center;
+    margin: 7px 3px 46px 17px;
+}
+
+img{
+    width: 284px;
+}
