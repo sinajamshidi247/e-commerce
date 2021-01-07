@@ -49,10 +49,12 @@ class Coupon(models.Model):
 
 
 class Contact(models.Model):
-	email = models.EmailField(max_length=100, unique=True)
+	email = models.EmailField(max_length=100)
 	full_name = models.CharField(max_length=100,null=True)
 	body=models.TextField()
 
 
 	def __str(self):
 		return self.email 
+
+

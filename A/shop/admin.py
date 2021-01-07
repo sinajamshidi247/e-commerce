@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Categories , Product
+from .models import Categories , Product , Comment
 
 
 
@@ -37,4 +37,4 @@ class CategoriesAdmin(admin.ModelAdmin):
 admin.site.register(Product,ProductAdmin)
 admin.site.register(Categories,CategoriesAdmin)
 
-
+admin.site.register(Comment)

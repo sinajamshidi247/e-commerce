@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from  accounts.models import User
 
 
 
@@ -45,3 +46,19 @@ class Product(models.Model):
 
     def get_absolute_url(self):
         return reverse('shop:product_detail',args=[self.slug,])
+
+
+class Comment(models.Model):
+    user =models.ForeignKey(User,on_delete=models.CASCADE,null= True,related_name='ucomment')
+    product =models.ForeignKey(Product,on_delete=models.CASCADE,null=True,related_name='pcomment')
+    created = models.DateTimeField(auto_now_add=True)
+    reply = models.ForeignKey('self',on_delete=models.CASCADE,null=True,blank =True,related_name='rcomment')
+    is_reply=models.BooleanField(default=False)
+    body=models.TextField(max_length=400,null=True)
+
+
+    class Meta:
+        ordering =('created',)
+
+    def __str__(self):
+        return f'{self.user}----{self.body}'

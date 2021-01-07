@@ -11,9 +11,33 @@
 <p class="card-text">{{product.discription}}</p>
 <form action ="{% url 'cart:addcart' product.id %}" method = "post">
 {% csrf_token %}
-{{form}}
+{{form_one}}
 <input type= 'submit' value = "Add to cart">
 </form>
+<br/><br/><br/>
+
+
+{% if request.user.is_authenticated %}
+<form action="{% url 'shop:product_detail' product.slug %}" method="post" novalidate>
+    {% csrf_token %}
+    {{form}}
+    <input type="submit" value="Send" class="btn btn-primary" >
+
+</form>
+
+{% else %}
+
+
+<p class="text-danger">Only logged in users can send comments</p>
+
+{% endif %}</br>
+
+
+ {% for comment in comments %}
+    <div class="card bg-dark  text-white">
+        <p class="card-header">{{comment.user}}</p>
+        <p class="card-body">{{comment.body}}</p>
+ {% endfor %} 
 
 
 
@@ -22,4 +46,5 @@
 
 
 
-{% endblock %}%
+
+{% endblock %}

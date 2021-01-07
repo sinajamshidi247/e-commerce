@@ -1,6 +1,9 @@
-from django.shortcuts import render , get_object_or_404
-from.models import Product , Categories
+from django.shortcuts import render , get_object_or_404,redirect
+from.models import Product , Categories , Comment
 from cart.forms import CartAddForm
+from django.contrib import messages 
+from .forms import AddReplyForm
+from django.contrib.auth.decorators import login_required
 
 
 def Home(request,slug=None):
@@ -16,6 +19,22 @@ def Home(request,slug=None):
 
 
 def product_detail(request, slug):
-    product = get_object_or_404(Product , slug = slug)
-    form=CartAddForm()
-    return render(request , 'shop/product_detail.html' ,{'product':product,'form':form})
+    product_all = get_object_or_404(Product , slug = slug)
+    form_one=CartAddForm()
+    product=get_object_or_404(Product,slug=slug)
+    comments =Comment.objects.filter(product=product)
+    if request.method == "POST":
+        form=AddReplyForm(request.POST)
+        if  form.is_valid():
+            new_comment=form.save(commit=False)
+            new_comment.product=product
+            new_comment.user=request.user
+            new_comment.save()
+            messages.success(request,'your reply submitted successfully','success')
+    else:
+        form = AddReplyForm()
+    return render(request , 'shop/product_detail.html' ,{'product':product_all,'form_one':form_one,'form':form,'comments':comments})
+
+
+
+
