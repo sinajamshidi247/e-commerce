@@ -1,9 +1,11 @@
 
 {% extends "base.html" %}
+{% load ratings%}
 
 
 
 {% block content %}
+
 
  <img src="{{ product.image.url }}" alt="" width="400px" height="300px">
 <p class="card-text">{{product.name}}</p>
@@ -16,7 +18,16 @@
 </form>
 <br/><br/><br/>
 
+<div id ="exp">
+<h3>Rate to this product:<h3>
+<br/>
 
+{% ratings product %}
+
+</div>
+<hr/>
+<h3>your idea about this product:</h3>
+<br/><br/><br/>
 {% if request.user.is_authenticated %}
 <form action="{% url 'shop:product_detail' product.slug %}" method="post" novalidate>
     {% csrf_token %}

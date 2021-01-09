@@ -1,0 +1,56 @@
+.footer{
+    display: inline block;
+    background-color:rgb(39, 39, 38);
+    height: 200px;
+    background-size: cover !important;
+    
+}
+
+.footer a{
+    text-align: center;
+}
+
+
+.footer img{
+    width: 50px;
+    height:70px;
+    margin-left: 290px;
+    margin-right: auto;
+    display: inline block;
+}
+
+
+.jumbotron {
+    padding: 4rem 2rem;
+    margin: 0;
+}
+
+.footer_section {
+    position: relative;
+    background-color: #ffffff;
+    text-align: center;
+  }
+  
+  .footer_section h6 {
+    color: #000000;
+    padding: 25px 0;
+    margin: 0;
+  }
+  
+  .footer_section h6 a {
+    color: inherit;
+  }
+
+
+h5{
+    text-align: center;
+    color: #ffffff;
+}
+
+
+a{
+    text-align: center !important;
+}
+hr{
+    color: #ffffff;
+}

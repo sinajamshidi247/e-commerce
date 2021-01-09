@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'sorl.thumbnail',
     'cart.apps.CartConfig',
     'orders.apps.OrdersConfig',
+    'star_ratings',
 
 
 ]
@@ -125,4 +126,6 @@ STATICFILES_DIRS = [
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+
+STAR_RATINGS_STAR_HEIGHT = 16
 

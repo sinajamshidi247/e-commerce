@@ -12,7 +12,7 @@
 {% comment %} <img id ='static' src="{% static "images/header1.jpg" %}" alt="My image"/> {% endcomment %}
 
 
-<p>
+<p id = "just">
 
 welcome to our shop </br>
 
@@ -50,7 +50,7 @@ this is a test project
 <div class="card" style="width: 18rem; display:inline-block">
   {% load thumbnail %}
   {% thumbnail product.image "200x400" as img %}
-  <img id = "pi" src="{{img.url}}"  alt="" height = "300px" >  
+  <img class ="new" id = "pi" src="{{img.url}}"  alt="" height = "300px" >  
   {% endthumbnail %}
   <div class="card-body">
    <a  href= "{{product.get_absolute_url}}" class="card-title">{{product.name}} </a>
@@ -59,7 +59,6 @@ this is a test project
 
 {% endfor %}
 
-
-
+ 
 
 {% endblock %}%
